@@ -1,7 +1,11 @@
 import React from 'react';
 import List from './components/List/index';
+import AddList from './components/AddList';
+
+import DB from "./assets/DB/db.json";
 
 function App() {
+
 	return (
 		<div className="Todo-container">
 			<div className="Todo"> {/* Todo block */}
@@ -17,7 +21,7 @@ function App() {
 							}
 						]}
 					/>
-					<List 
+					<List
 						items={[
 							{
 								color: "green",
@@ -31,16 +35,10 @@ function App() {
 								color: "blue",
 								name: "Фронтенд"
 							},
-							{
-								color: "light-green",
-								name: "Книги"
-							},
-							{
-								color: "grey",
-								name: "Личное"
-							}
 						]}
+						isRemovable
 					/>
+					<AddList colors={DB.colors} />
 				</div>
 
 				<div className="Todo__tasks">
