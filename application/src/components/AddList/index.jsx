@@ -2,23 +2,20 @@ import React, { useState } from 'react';
 import List from '../List';
 import Badge from '../Badge';
 
-import closeSvg from '../../assets/icons/Close.svg';
-
-import './AddList.scss'; // Styles
+import './AddList.scss';
 
 const AddList = ({ colors }) => {
 	const [visiblePopup, setVisiblePopup] = useState(false);
-	const [selectedColor, selectColor] = useState(colors[0].id);
-
+	const [selectedColor, selectColor] = useState(null);
 
 	return (
 		<div className="add-list">
 			<List
-				userClick={() => setVisiblePopup(true)} // Shows the function of adding a list (setVisiblePopup(!visiblePopup)})
+				onClick={() => setVisiblePopup(true)} // Shows the function of adding a list
 
 				items={[
 					{
-						className: 'list__add-btn', // Add list 'class
+						className: 'list__add-btn',
 						icon: (
 							<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M6 1V11" stroke="#868686" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -30,7 +27,6 @@ const AddList = ({ colors }) => {
 			/>
 			{visiblePopup && (
 				<div className="add-list__popup">
-					<img onClick={() => setVisiblePopup(false)} src={closeSvg} alt="Закрыть" className="add-list__popup-close-btn"/>
 					<input className="field" type="text" placeholder="Название списка" />
 					<div className="add-list__popup-colors">
 						<ul>
@@ -38,10 +34,10 @@ const AddList = ({ colors }) => {
 								{
 									colors.map(color => (
 										<Badge
-											userClick = {() => selectColor(color.id)}
-											key = {color.id}
-											color = {color.name}
-											className = {selectedColor === color.id && 'active'}
+											onClick={() => selectColor(color.id)}
+											key={color.id}
+											color={color.name}
+											className={selectedColor === color.id && 'active'}
 										/>
 									))
 								}
@@ -49,7 +45,7 @@ const AddList = ({ colors }) => {
 							<li></li>
 						</ul>
 					</div>
-					<button className="button">Добавить</button>
+					<button className="AddList-btn">Добавить</button>
 				</div>
 			)}
 		</div>
