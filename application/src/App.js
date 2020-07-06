@@ -1,8 +1,8 @@
 import React from 'react';
-import List from './components/List/'; // Add 'List' component
-import AddList from './components/AddList'; // Add the function of adding a list
+import List from './components/List/index';
+import AddList from './components/AddList';
 
-import DB from "./assets/DB/db.json"; // Data base (colors)
+import DB from "./assets/DB/db.json";
 
 function App() {
 
@@ -35,10 +35,6 @@ function App() {
 								color: "blue",
 								name: "Фронтенд"
 							},
-							{
-								color: 'red',
-								name: 'Тест'
-							}
 						]}
 						isRemovable
 					/>
@@ -46,7 +42,7 @@ function App() {
 				</div>
 
 				<div className="Todo__tasks">
-					
+
 				</div>
 			</div>
 		</div>
