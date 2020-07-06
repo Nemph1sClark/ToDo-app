@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import Badge from '../Badge'
+import Badge from '../Badge' // For use the colors from Badge
 
 import './List.scss';
 

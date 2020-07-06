@@ -1,15 +1,15 @@
 import React from 'react';
-import List from './components/List/index';
-import AddList from './components/AddList';
+import List from './components/List/index'; // Lists
+import AddList from './components/AddList'; // Component for adding a lists
 
-import DB from "./assets/DB/db.json";
+import DB from "./assets/DB/db.json"; // Data Base (colors, id, names)
 
 function App() {
 
 	return (
 		<div className="Todo-container">
-			<div className="Todo"> {/* Todo block */}
-				<div className="Todo__sidebar"> {/* Sidebar */}
+			<div className="Todo">
+				<div className="Todo__sidebar">
 					<List
 						items={[
 							{
